@@ -118,7 +118,7 @@ body {
   margin-bottom: 36px;
 }
 .logo-wrap img {
-  max-width: 320px; width: 100%; height: auto;
+  max-width: 400px; width: 100%; height: auto;
   filter: drop-shadow(0 2px 14px rgba(114,205,198,0.20));
   /* smooths rendering */
   image-rendering: -webkit-optimize-contrast;
@@ -254,7 +254,7 @@ body {
     then upload BOTH files to Spaceship together.
   -->
   <div class="logo-wrap">
-    <img src="https://thelyproject.com/logo.png" width="300">
+    <img src="https://thelyproject.com/logo.png" width="400">
   </div>
 
   <!-- Status badge -->
@@ -275,7 +275,7 @@ body {
   <!-- Countdown -->
   <div class="countdown" role="timer" aria-label="Launch countdown">
     <div class="count-item">
-      <div class="count-num" id="cd-days">180</div>
+      <div class="count-num" id="cd-days">30</div>
       <div class="count-label">Days</div>
     </div>
     <div class="count-item">
@@ -352,6 +352,48 @@ body {
 
 
 
+<script>
+  // Set the launch date (currently set to 30 days from today)
+  // You can change this to a specific date like: new Date("Dec 31, 2024 23:59:59")
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 30);
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    let distance = launchDate.getTime() - now;
+
+    if (distance < 0) {
+      // Reset the launch date to 30 days from now
+      launchDate.setTime(now + 30 * 24 * 60 * 60 * 1000);
+      distance = launchDate.getTime() - now;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    updateElement('cd-days', days);
+    updateElement('cd-hours', hours.toString().padStart(2, '0'));
+    updateElement('cd-mins', minutes.toString().padStart(2, '0'));
+    updateElement('cd-secs', seconds.toString().padStart(2, '0'));
+  }
+
+  function updateElement(id, value) {
+    const el = document.getElementById(id);
+    if (el.innerText !== value.toString()) {
+      el.classList.add('flip');
+      setTimeout(() => {
+        el.innerText = value;
+        el.classList.remove('flip');
+      }, 120); // Matches the 0.12s CSS transition duration
+    }
+  }
+
+  // Initial call and start interval
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
 <script type="text/javascript" src="/unprotected/back_to_spaceship.js?hash=4975d460e508829e8fb64d3962bc44ad35f3a95a"></script>
 
