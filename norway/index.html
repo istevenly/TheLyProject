@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norway Family Adventure &middot; June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper:      #FAFAF7;
+  --paper-warm: #F4F0E8;
+  --paper-dark: #EDE8DC;
+  --ink:        #1A1714;
+  --ink-mid:    #3D3830;
+  --ink-soft:   #6B6357;
+  --ink-mute:   #A89F94;
+  --orange:     #D45C1E;
+  --orange-lt:  rgba(212,92,30,0.10);
+  --orange-md:  rgba(212,92,30,0.18);
+  --forest:     #1E4D35;
+  --forest-lt:  rgba(30,77,53,0.09);
+  --fjord:      #1B6B8A;
+  --fjord-lt:   rgba(27,107,138,0.10);
+  --rule:       rgba(26,23,20,0.10);
+  --rule-dark:  rgba(26,23,20,0.18);
+  --f-d: 'Playfair Display', Georgia, serif;
+  --f-b: 'Inter', system-ui, sans-serif;
+  --f-m: 'DM Mono', 'Courier New', monospace;
+}
+
+html { font-family: var(--f-b); background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.6; }
+body { min-height: 100vh; }
+
+/* ── TOP NAV BAR ── */
+.topbar {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--paper); border-bottom: 1px solid var(--rule-dark);
+  padding: 0 40px;
+  display: flex; align-items: stretch; gap: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.topbar-brand {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0; border-right: 1px solid var(--rule); padding-right: 24px; margin-right: 4px;
+  flex-shrink: 0;
+}
+.topbar-brand-title { font-family: var(--f-d); font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+.topbar-brand-sub { font-family: var(--f-m); font-size: 10px; color: var(--ink-mute); letter-spacing: .08em; text-transform: uppercase; margin-top: 1px; }
+
+.topbar-nav {
+  display: flex; align-items: center; flex: 1; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none; gap: 2px;
+}
+.topbar-nav::-webkit-scrollbar { display: none; }
+
+.tn {
+  display: flex; align-items: center; gap: 7px; padding: 0 14px; height: 100%;
+  cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent;
+  transition: border-color .18s, background .18s; user-select: none;
+  min-height: 56px;
+}
+.tn:hover { background: var(--paper-warm); }
+.tn.active { border-bottom-color: var(--orange); background: var(--orange-lt); }
+.tn.active .tn-num { color: var(--orange); }
+.tn.active .tn-loc { color: var(--ink); font-weight: 600; }
+.tn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.tn-num { font-family: var(--f-m); font-size: 10px; color: var(--ink-mute); letter-spacing: .06em; }
+.tn-loc { font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+
+.topbar-pills { display: flex; align-items: center; gap: 8px; padding-left: 16px; border-left: 1px solid var(--rule); flex-shrink: 0; }
+.tp { font-family: var(--f-m); font-size: 10px; padding: 4px 10px; border-radius: 100px; letter-spacing: .06em; text-transform: uppercase; border: 1px solid var(--rule-dark); color: var(--ink-soft); background: transparent; }
+.tp.away    { background: var(--fjord-lt); color: var(--fjord); border-color: rgba(27,107,138,.25); }
+.tp.book    { background: var(--orange-lt); color: var(--orange); border-color: rgba(212,92,30,.28); }
+.tp.special { background: var(--forest-lt); color: var(--forest); border-color: rgba(30,77,53,.25); }
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--ink);
+  padding: 100px 80px 90px;
+  border-bottom: 4px solid var(--orange);
+}
+.hero-bg-img {
+  position: absolute; inset: 0;
+  background: url('https://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A6r%C3%B8yfjord-Norway-April-2011.jpg') center/cover no-repeat;
+  opacity: .22; filter: saturate(.6);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(26,23,20,.82) 0%, rgba(26,23,20,.55) 60%, rgba(212,92,30,.12) 100%);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 900px; }
+
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-m); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 24px;
+}
+.hero-kicker::before, .hero-kicker::after { content: ''; display: block; height: 1px; background: var(--orange); opacity: .6; }
+.hero-kicker::before { width: 24px; } .hero-kicker::after { width: 40px; }
+
+.hero-h1 {
+  font-family: var(--f-d); font-size: clamp(52px, 7vw, 96px);
+  font-weight: 400; color: #F4F0E8; line-height: 1.04;
+  letter-spacing: -.02em;
+}
+.hero-h1 em { font-style: italic; font-weight: 400; color: var(--orange); }
+
+.hero-rule { width: 72px; height: 3px; background: var(--orange); margin: 28px 0; }
+
+.hero-sub {
+  font-size: 18px; color: rgba(244,240,232,.72); font-weight: 300;
+  max-width: 680px; line-height: 1.7;
+}
+
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 28px; margin-top: 44px;
+  padding-top: 32px; border-top: 1px solid rgba(244,240,232,.14);
+}
+.hm { display: flex; flex-direction: column; gap: 3px; }
+.hm-label { font-family: var(--f-m); font-size: 9px; text-transform: uppercase; letter-spacing: .18em; color: rgba(244,240,232,.38); }
+.hm-value { font-size: 14px; font-weight: 500; color: rgba(244,240,232,.88); }
+
+.hero-stats {
+  display: flex; gap: 0; margin-top: 48px;
+}
+.hs-divider { width: 1px; background: rgba(244,240,232,.12); margin: 0 32px; flex-shrink: 0; }
+.hs { display: flex; flex-direction: column; gap: 4px; }
+.hs-v { font-family: var(--f-d); font-size: 40px; font-weight: 600; color: var(--orange); line-height: 1; }
+.hs-l { font-family: var(--f-m); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; color: rgba(244,240,232,.4); }
+
+/* ── MAIN CONTENT ── */
+.content { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+
+/* ── SECTION HEADER ── */
+.section-head {
+  display: flex; align-items: baseline; gap: 16px;
+  padding: 56px 0 36px; border-bottom: 1px solid var(--rule-dark); margin-bottom: 48px;
+}
+.section-head-num { font-family: var(--f-m); font-size: 11px; color: var(--ink-mute); letter-spacing: .12em; }
+.section-head-title { font-family: var(--f-d); font-size: 13px; font-weight: 400; font-style: italic; color: var(--ink-soft); }
+
+/* ── DAY CARD ── */
+.day {
+  display: grid; grid-template-columns: 280px 1fr;
+  border: 1px solid var(--rule-dark); border-radius: 4px;
+  overflow: hidden; margin-bottom: 32px;
+  background: #fff;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+  scroll-margin-top: 72px;
+}
+.day.visible { opacity: 1; transform: translateY(0); }
+
+.day.solstice { border-color: var(--forest); border-width: 2px; }
+.day.solstice .day-aside { background: var(--forest) !important; }
+
+/* Day aside */
+.day-aside {
+  background: var(--ink); color: var(--paper);
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 20px;
+  position: relative; overflow: hidden;
+}
+.day-aside::after {
+  content: ''; position: absolute;
+  bottom: -30px; right: -30px; width: 120px; height: 120px;
+  border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none;
+}
+
+.day-num {
+  font-family: var(--f-d); font-size: 80px; font-weight: 600; font-style: italic;
+  line-height: 1; letter-spacing: -.03em; color: rgba(255,255,255,.12); margin-bottom: -8px;
+}
+.day-num-label {
+  font-family: var(--f-m); font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.38); margin-top: -4px;
+}
+.day-location { font-family: var(--f-d); font-size: 26px; font-weight: 500; color: #F4F0E8; line-height: 1.2; }
+.day-subtitle { font-size: 13px; color: rgba(244,240,232,.5); font-weight: 300; line-height: 1.4; margin-top: -10px; }
+.day-date { font-family: var(--f-m); font-size: 10px; color: rgba(255,255,255,.35); letter-spacing: .1em; text-transform: uppercase; }
+
+.day-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.db { font-family: var(--f-m); font-size: 9px; padding: 3px 9px; border-radius: 2px; letter-spacing: .08em; text-transform: uppercase; }
+.db.ov  { background: rgba(27,107,138,.3); color: #6BC8E8; border: 1px solid rgba(107,200,232,.25); }
+.db.bk  { background: rgba(212,92,30,.25); color: #F4936A; border: 1px solid rgba(212,92,30,.35); }
+.db.sp  { background: rgba(255,255,255,.12); color: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.18); }
+.db.bs  { background: rgba(255,255,255,.07); color: rgba(255,255,255,.45); border: 1px solid rgba(255,255,255,.12); }
+
+/* Day body */
+.day-body { display: flex; flex-direction: column; }
+
+.day-img { height: 200px; overflow: hidden; position: relative; border-bottom: 1px solid var(--rule); }
+.day-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: saturate(1.05) brightness(.95); transition: transform .6s ease;
+}
+.day:hover .day-img img { transform: scale(1.04); }
+.day-img-caption {
+  position: absolute; bottom: 8px; right: 12px;
+  font-family: var(--f-m); font-size: 9px; color: rgba(255,255,255,.5); letter-spacing: .06em;
+}
+.day-img::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(26,23,20,.3)); pointer-events: none;
+}
+
+/* Activities */
+.day-acts {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--rule); flex: 1;
+}
+.act { padding: 20px 20px 18px; border-right: 1px solid var(--rule); position: relative; }
+.act:last-child { border-right: none; }
+.act::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--ac-color, var(--fjord)); opacity: .6;
+}
+
+.act-time {
+  font-family: var(--f-m); font-size: 9px; text-transform: uppercase;
+  letter-spacing: .18em; color: var(--ac-color, var(--fjord));
+  margin-bottom: 8px; display: flex; align-items: center; gap: 5px;
+}
+.act-time::before { content: ''; display: block; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.act-title { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 6px; }
+.act-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.55; }
+.act-tag {
+  display: inline-block; margin-top: 10px;
+  font-family: var(--f-m); font-size: 9px; color: var(--ac-color, var(--fjord));
+  background: transparent; border: 1px solid var(--rule-dark);
+  padding: 2px 7px; border-radius: 2px; letter-spacing: .07em; text-transform: uppercase;
+}
+
+/* Card footer */
+.day-footer { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--rule); }
+.df { padding: 14px 20px; border-right: 1px solid var(--rule); }
+.df:last-child { border-right: none; }
+.df-label { font-family: var(--f-m); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-mute); margin-bottom: 6px; }
+.df-value { font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
+.df-value strong { color: var(--ink); font-weight: 600; }
+
+.tb {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--f-m); font-size: 10px; padding: 3px 9px;
+  border-radius: 2px; margin-bottom: 5px;
+}
+.tb.train { background: rgba(27,107,138,.1); color: var(--fjord); border: 1px solid rgba(27,107,138,.22); }
+.tb.ferry { background: rgba(30,77,53,.1); color: var(--forest); border: 1px solid rgba(30,77,53,.22); }
+.tb.bus   { background: rgba(212,92,30,.1); color: var(--orange); border: 1px solid rgba(212,92,30,.22); }
+.tb.walk  { background: rgba(100,120,80,.1); color: #5A7040; border: 1px solid rgba(100,120,80,.22); }
+
+/* Tip row */
+.day-tip {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 20px; background: var(--paper-warm); border-bottom: 1px solid var(--rule);
+}
+.day-tip-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.day-tip-text { font-size: 12px; color: var(--ink-soft); line-height: 1.55; }
+.day-tip-text strong { color: var(--ink-mid); font-weight: 600; }
+
+/* Booking alert */
+.day-alert {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 20px; background: var(--orange-lt); border-top: 2px solid var(--orange);
+  font-size: 12px; color: #7A3010; line-height: 1.5;
+}
+.day-alert strong { color: var(--orange); font-weight: 600; }
+
+/* Pull quote (solstice day) */
+.pull-quote {
+  padding: 24px 32px; background: var(--forest); color: rgba(244,240,232,.88);
+  display: flex; align-items: center; gap: 16px;
+}
+.pq-mark { font-family: var(--f-d); font-size: 56px; color: rgba(255,255,255,.18); line-height: 1; flex-shrink: 0; }
+.pq-text { font-family: var(--f-d); font-size: 16px; font-style: italic; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .day { grid-template-columns: 240px 1fr; }
+  .day-acts, .day-footer { grid-template-columns: 1fr 1fr; }
+  .day-acts .act:last-child,
+  .day-footer .df:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--rule); border-right: none; }
+}
+@media (max-width: 800px) {
+  .topbar { padding: 0 16px; }
+  .topbar-pills { display: none; }
+  .hero { padding: 64px 24px 56px; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .hs-divider { display: none; }
+  .content { padding: 0 16px 80px; }
+  .day { grid-template-columns: 1fr; }
+  .day-aside { flex-direction: row; flex-wrap: wrap; align-items: flex-start; gap: 12px; padding: 20px; }
+  .day-num { font-size: 48px; }
+  .day-acts, .day-footer { grid-template-columns: 1fr; }
+  .day-acts .act, .day-footer .df { border-right: none; border-top: 1px solid var(--rule); }
+  .day-acts .act:first-child, .day-footer .df:first-child { border-top: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .day { opacity: 1; transform: none; transition: none; }
+  .day img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ TOP NAV ═══════════════ -->
+<header class="topbar" id="topbar">
+  <div class="topbar-brand">
+    <div>
+      <div class="topbar-brand-title">Norway in Summer</div>
+      <div class="topbar-brand-sub">June 14&ndash;25 &middot; 2026</div>
+    </div>
+  </div>
+
+  <nav class="topbar-nav" id="dayNav" aria-label="Day navigation">
+    <div class="tn active" data-n="1" onclick="goDay(1)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#1B6B8A" aria-hidden="true"></span>
+      <span class="tn-num">01</span>
+      <span class="tn-loc">Oslo</span>
+    </div>
+    <div class="tn" data-n="2" onclick="goDay(2)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#2A7AA8" aria-hidden="true"></span>
+      <span class="tn-num">02</span>
+      <span class="tn-loc">Byg&oslash;y</span>
+    </div>
+    <div class="tn" data-n="3" onclick="goDay(3)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#1E7060" aria-hidden="true"></span>
+      <span class="tn-num">03</span>
+      <span class="tn-loc">Fjord Islands</span>
+    </div>
+    <div class="tn" data-n="4" onclick="goDay(4)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#4A8030" aria-hidden="true"></span>
+      <span class="tn-num">04</span>
+      <span class="tn-loc">Lillehammer</span>
+    </div>
+    <div class="tn" data-n="5" onclick="goDay(5)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#D45C1E" aria-hidden="true"></span>
+      <span class="tn-num">05</span>
+      <span class="tn-loc">Oslo</span>
+    </div>
+    <div class="tn" data-n="6" onclick="goDay(6)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#B84018" aria-hidden="true"></span>
+      <span class="tn-num">06</span>
+      <span class="tn-loc">Oslo&rarr;Bergen</span>
+    </div>
+    <div class="tn" data-n="7" onclick="goDay(7)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#963028" aria-hidden="true"></span>
+      <span class="tn-num">07</span>
+      <span class="tn-loc">Bergen</span>
+    </div>
+    <div class="tn" data-n="8" onclick="goDay(8)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#1E4D35" aria-hidden="true"></span>
+      <span class="tn-num">08</span>
+      <span class="tn-loc">Fl&aring;m Railway</span>
+    </div>
+    <div class="tn" data-n="9" onclick="goDay(9)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#3050A8" aria-hidden="true"></span>
+      <span class="tn-num">09</span>
+      <span class="tn-loc">Fl&aring;m&rarr;Oslo</span>
+    </div>
+    <div class="tn" data-n="10" onclick="goDay(10)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#6050B0" aria-hidden="true"></span>
+      <span class="tn-num">10</span>
+      <span class="tn-loc">Oslo</span>
+    </div>
+    <div class="tn" data-n="11" onclick="goDay(11)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#287060" aria-hidden="true"></span>
+      <span class="tn-num">11</span>
+      <span class="tn-loc">Dr&oslash;bak</span>
+    </div>
+    <div class="tn" data-n="12" onclick="goDay(12)" role="button" tabindex="0">
+      <span class="tn-dot" style="background:#3848A0" aria-hidden="true"></span>
+      <span class="tn-num">12</span>
+      <span class="tn-loc">Oslo</span>
+    </div>
+  </nav>
+
+  <div class="topbar-pills" id="dayPills" aria-live="polite"></div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-bg-img" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker" aria-hidden="true">Family Travel &middot; Norway &middot; June 2026</div>
+    <h1 class="hero-h1">Norway<br><em>in Summer</em></h1>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="hero-sub">12 days of fjords, midnight sun and open-air adventure. Oslo as home base, with train journeys to Bergen, the legendary Fl&aring;m Railway and the UNESCO N&aelig;r&oslash;yfjord. No rental car &mdash; just Norway&rsquo;s world-class public transit network.</p>
+    <div class="hero-meta">
+      <div class="hm"><div class="hm-label">Dates</div><div class="hm-value">June 14&ndash;25, 2026</div></div>
+      <div class="hm"><div class="hm-label">Base</div><div class="hm-value">Oslo Apartment</div></div>
+      <div class="hm"><div class="hm-label">Transport</div><div class="hm-value">No Rental Car</div></div>
+      <div class="hm"><div class="hm-label">Highlight</div><div class="hm-value">Midnight Sun</div></div>
+      <div class="hm"><div class="hm-label">Travellers</div><div class="hm-value">Ages 4, 6 &amp; 10</div></div>
+      <div class="hm"><div class="hm-label">Difficulty</div><div class="hm-value">All Easy</div></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-v">12</div><div class="hs-l">Days</div></div>
+      <div class="hs-divider" aria-hidden="true"></div>
+      <div class="hs"><div class="hs-v">3</div><div class="hs-l">Cities</div></div>
+      <div class="hs-divider" aria-hidden="true"></div>
+      <div class="hs"><div class="hs-v">5</div><div class="hs-l">Train Rides</div></div>
+      <div class="hs-divider" aria-hidden="true"></div>
+      <div class="hs"><div class="hs-v">2</div><div class="hs-l">Fjord Cruises</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DAYS ═══════════════ -->
+<main class="content" id="mainContent">
+
+  <div class="section-head">
+    <span class="section-head-num">Day by Day</span>
+    <span class="section-head-title">A complete family itinerary</span>
+  </div>
+
+  <!-- ── DAY 1 ── -->
+  <article class="day" id="day-1" data-badges="">
+    <div class="day-aside" style="background:#1A1714;">
+      <div class="day-num" aria-hidden="true">01</div>
+      <div class="day-num-label">Day One</div>
+      <div class="day-location">Oslo</div>
+      <div class="day-subtitle">Arrival &amp; City Orientation</div>
+      <div class="day-date">Sunday &middot; June 14</div>
+      <div class="day-badges"><span class="db bs">Home Base</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Karl_Johans_gate,_Oslo_-_Royal_Palace,_Oslo_-_perspective.jpg" alt="Karl Johans Gate with Royal Palace, Oslo" loading="lazy">
+        <span class="day-img-caption">Karl Johans Gate &middot; Oslo</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Karl Johans Gate Walk</div>
+          <div class="act-desc">Royal boulevard from Oslo S to the Palace. Spot the palace guards, pick up a pastry, feel the city&rsquo;s summer rhythm at a gentle arrival pace.</div>
+          <span class="act-tag">City Walk</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Aker Brygge Waterfront</div>
+          <div class="act-desc">Oslo&rsquo;s renovated harbor front. Boats on the fjord, ice cream kiosks, outdoor seating &mdash; completely flat and stroller-friendly throughout.</div>
+          <span class="act-tag">Waterfront</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Grocery Run &amp; Settle In</div>
+          <div class="act-desc">Meny or Rema 1000 grocery stop. Home-cooked apartment meal. Early bedtime &mdash; big museum day tomorrow and three jet-lagged boys.</div>
+          <span class="act-tag">Rest Night</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb train">&#128642; Flytoget</span><div class="df-value">Airport Express &rarr; Oslo S <strong>&middot; 20 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Mathallen Oslo</strong> &mdash; Covered food hall near Vulkan. Diverse stalls &mdash; no group consensus required.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Royal Palace guards in full dress uniform at the top of Karl Johans Gate &mdash; instant photo stop for all three boys.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Download the Ruter app before you land and set up payment from home. A 7-day unlimited pass covers all Oslo buses, trams, metro and fjord island ferries.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 2 ── -->
+  <article class="day" id="day-2" data-badges="">
+    <div class="day-aside" style="background:#1E2A38;">
+      <div class="day-num" aria-hidden="true">02</div>
+      <div class="day-num-label">Day Two</div>
+      <div class="day-location">Byg&oslash;y Peninsula</div>
+      <div class="day-subtitle">Museum Row</div>
+      <div class="day-date">Monday &middot; June 15</div>
+      <div class="day-badges"><span class="db bs">Day Trip</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Norsk_Folkemuseum.jpg" alt="Norwegian Folk Museum open-air buildings, Bygdøy" loading="lazy">
+        <span class="day-img-caption">Norsk Folkemuseum &middot; Byg&oslash;y</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Norwegian Folk Museum</div>
+          <div class="act-desc">150+ historic buildings across open-air grounds. A 13th-century stave church, farmsteads and costumed interpreters in period character. Allow 2&ndash;3 hours.</div>
+          <span class="act-tag">Open-Air Museum</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Kon-Tiki &amp; Fram Museums</div>
+          <div class="act-desc">The actual balsa raft that crossed the Pacific. Then the Fram polar ship &mdash; the boys can walk the deck where Amundsen&rsquo;s crew slept in tiny bunks.</div>
+          <span class="act-tag">Maritime History</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Ferry Back &amp; Pizza Night</div>
+          <div class="act-desc">Short fjord ferry back to Aker Brygge. Peppes Pizza for dinner. A Norwegian institution and a crowd-pleasing end to a full museum day.</div>
+          <span class="act-tag">Rest Night</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb ferry">&#9972; Ruter Ferry Line 91</span><div class="df-value">Aker Brygge &rarr; Byg&oslash;y <strong>&middot; 10 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Peppes Pizza</strong> &mdash; Classic Norwegian pizza chain. Kids love it without exception.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Walking the deck of the Fram polar ship and peering into the crew bunks where real Arctic explorers slept.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Arrive at the Folk Museum at opening time. Costumed guides and farm animals draw tour groups fast. Head to the stave church and farmsteads first.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 3 ── -->
+  <article class="day" id="day-3" data-badges="">
+    <div class="day-aside" style="background:#1A2E28;">
+      <div class="day-num" aria-hidden="true">03</div>
+      <div class="day-num-label">Day Three</div>
+      <div class="day-location">Oslo Fjord Islands</div>
+      <div class="day-subtitle">Beach &amp; Nature Day</div>
+      <div class="day-date">Tuesday &middot; June 16</div>
+      <div class="day-badges"><span class="db bs">Day Trip</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lang%C3%B8yene,_Oslo.jpg" alt="Langøyene island beach Oslo Fjord" loading="lazy">
+        <span class="day-img-caption">Lang&oslash;yene &middot; Oslo Fjord</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Lang&oslash;yene Island Beach</div>
+          <div class="act-desc">Oslo&rsquo;s best sandy beach island. Car-free, flat, warm fjord water for swimming. Wide grassy meadows behind the shore. Arrive early on sunny days.</div>
+          <span class="act-tag">Beach Day</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Gressholmen Nature Walk</div>
+          <div class="act-desc">Wilder, forested island with bird-rich scrub, scramble rocks, ruins of Norway&rsquo;s first commercial airport (1930s) and a seasonal caf&eacute;.</div>
+          <span class="act-tag">Nature Walk</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Ferry Back &amp; Harbor P&oslash;lse</div>
+          <div class="act-desc">Return ferry to Aker Brygge. Hot dogs (p&oslash;lse) from a harbor kiosk &mdash; a genuine Norwegian tradition. Three beautifully exhausted boys.</div>
+          <span class="act-tag">Waterfront</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb ferry">&#9972; Ruter Ferry Line 94</span><div class="df-value">Aker Brygge &rarr; Islands <strong>&middot; 15&ndash;25 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Packed Picnic</strong> &mdash; Prepare the night before. Island food options are very limited and sell out fast.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Riding the public ferry to a car-free island &mdash; the boys will feel like real Viking sea explorers on their first crossing.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Pack a complete picnic. Bring water shoes &mdash; the rocks around Gressholmen are slippery. A windbreak jacket is essential even on sunny June days on the fjord.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 4 ── -->
+  <article class="day" id="day-4" data-badges="book">
+    <div class="day-aside" style="background:#1C2A14;">
+      <div class="day-num" aria-hidden="true">04</div>
+      <div class="day-num-label">Day Four</div>
+      <div class="day-location">Lillehammer</div>
+      <div class="day-subtitle">Olympic Valley Day Trip</div>
+      <div class="day-date">Wednesday &middot; June 17</div>
+      <div class="day-badges"><span class="db bs">Day Trip</span><span class="db bk">Book Early</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/House_in_the_Maihaugen_Open_Air_Museum_Lillehammer_Norway.jpg" alt="Historic house at Maihaugen open-air museum Lillehammer" loading="lazy">
+        <span class="day-img-caption">Maihaugen Open-Air Museum &middot; Lillehammer</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Maihaugen Open-Air Museum</div>
+          <div class="act-desc">200+ historic buildings including a complete reconstructed 1900s Norwegian main street. Costumed guides in period character, farmsteads, stave church. 2&ndash;3 hours.</div>
+          <span class="act-tag">Open-Air Museum</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Lake Mj&oslash;sa &amp; Olympic Park</div>
+          <div class="act-desc">Walk Norway&rsquo;s longest lake shoreline. The Olympic ski jump is visible from town. Norwegian Olympic Museum at H&aring;kons Hall is excellent for the 10-year-old.</div>
+          <span class="act-tag">Olympic Heritage</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Train Back to Oslo</div>
+          <div class="act-desc">Scenic Vy return train to Oslo S. Dinner at apartment or a simple caf&eacute; near the station. Relaxed end to the furthest day trip of the trip.</div>
+          <span class="act-tag">Travel Home</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb train">&#128642; Vy Train</span><div class="df-value">Oslo S &rarr; Lillehammer (return) <strong>&middot; ~2 hrs each way</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Brasserie Mes, Lillehammer</strong> &mdash; Well-regarded local lunch spot in the town center.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">The fully reconstructed 1900s Norwegian main street at Maihaugen &mdash; old pharmacy, dentist&rsquo;s chair, general store, all completely real.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Book Lillehammer train tickets 4&ndash;6 weeks in advance via vy.no. Minipris early-purchase fares for a family of five represent very significant savings over walk-up prices.</div>
+      </div>
+      <div class="day-alert">&#128276; <strong>Advance Booking Required &mdash;</strong> Book Vy train tickets 4&ndash;6 weeks in advance for best Minipris fares. Choose right-side window seats facing Lillehammer for lake views on approach.</div>
+    </div>
+  </article>
+
+  <!-- ── DAY 5 ── -->
+  <article class="day" id="day-5" data-badges="">
+    <div class="day-aside" style="background:#2A1C0A;">
+      <div class="day-num" aria-hidden="true">05</div>
+      <div class="day-num-label">Day Five</div>
+      <div class="day-location">Oslo</div>
+      <div class="day-subtitle">Vigeland Park &amp; Frogner District</div>
+      <div class="day-date">Thursday &middot; June 18</div>
+      <div class="day-badges"><span class="db bs">City Day</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monolith_Plateau_in_Vigeland_Sculpture_Park.jpg" alt="Monolith at Vigeland Sculpture Park Oslo" loading="lazy">
+        <span class="day-img-caption">Vigeland Sculpture Park &middot; Oslo</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Vigeland Sculpture Park</div>
+          <div class="act-desc">200+ sculptures across 80 free acres. The granite Monolith is the centrepiece. Children are actively encouraged to climb and touch the sculptures. Free entry, always open.</div>
+          <span class="act-tag">Free Entry</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Frogner Park &amp; Playground</div>
+          <div class="act-desc">The wider surrounding park has dedicated playgrounds, paddling pool areas and open lawns &mdash; where Oslo families come to relax on summer afternoons.</div>
+          <span class="act-tag">Local Life</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Majorstuen &amp; Golden Hour</div>
+          <div class="act-desc">Short metro hop for dinner in the Majorstuen caf&eacute; district. Consider a late 9&ndash;10 PM stroll back through Vigeland in the extraordinary midnight-sun golden light.</div>
+          <span class="act-tag">Golden Hour</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb walk">&#128694; T-bane + Walk</span><div class="df-value">Lines 2/3 to Majorstuen, 5-min walk to park <strong>&middot; 10 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Local Caf&eacute;, Majorstuen</strong> &mdash; Many options. Ask for the &ldquo;Dagens&rdquo; lunch special &mdash; best value in any Norwegian caf&eacute;.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Finding the angriest and most bizarre Vigeland sculptures and inventing stories about them &mdash; the Sinnataggen angry baby wins every time.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Vigeland at 9&ndash;10 PM in June is extraordinary &mdash; amber light on granite. Worth a short after-dinner stroll even with tired small boys. Bring a light jacket.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 6 ── -->
+  <article class="day" id="day-6" data-badges="away book">
+    <div class="day-aside" style="background:#281A0E;">
+      <div class="day-num" aria-hidden="true">06</div>
+      <div class="day-num-label">Day Six</div>
+      <div class="day-location">Oslo &rarr; Bergen</div>
+      <div class="day-subtitle">The Bergen Railway</div>
+      <div class="day-date">Friday &middot; June 19</div>
+      <div class="day-badges"><span class="db ov">Overnight Bergen</span><span class="db bk">Book Early</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/NSB_El_18_2252_Haugas%C3%B8l_-_Finse.jpg" alt="Bergen Railway train crossing Hardangervidda plateau near Finse" loading="lazy">
+        <span class="day-img-caption">Bergen Railway (Bergensbanen) &middot; Hardangervidda</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Board Bergen Railway at Oslo S</div>
+          <div class="act-desc">One of the world&rsquo;s great scenic train journeys. Book an early departure. Pack a full activity bag per child &mdash; snacks, headphones, drawing notebooks &mdash; for the crossing.</div>
+          <span class="act-tag">Scenic Train</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Cross Hardangervidda Plateau</div>
+          <div class="act-desc">Finse station at 1,222m &mdash; snow on the peaks in June. Descend through dramatic fjord-carved valleys toward Bergen as the daylight stretches toward evening.</div>
+          <span class="act-tag">Mountain Crossing</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Arrive Bergen &mdash; Bryggen First Look</div>
+          <div class="act-desc">Check in, short walk along the colourful Bryggen wharf waterfront. Bergen Fish Market stalls for dinner &mdash; fish soup, fish cakes and fresh shrimp on the harbour.</div>
+          <span class="act-tag">Arrival Night</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb train">&#128642; Vy Bergen Railway</span><div class="df-value">Oslo S &rarr; Bergen direct <strong>&middot; ~7 hrs</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Bergen Fish Market (Fisketorget)</strong> &mdash; Hot food stalls on the harbour. Fish soup, fish cakes and shrimp &mdash; excellent for kids.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Seeing snow-covered mountain peaks from the train window in the middle of summer &mdash; the boys will flat-out refuse to believe it.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Build a Norway Train Kit for each child: drawing notebook, sticker book, snacks, headphones with downloaded content for the mountain tunnels. The onboard caf&eacute; car has warm food and drinks.</div>
+      </div>
+      <div class="day-alert">&#128276; <strong>Advance Booking Required &mdash;</strong> Bergen Railway sells out weeks ahead in June. Book 6&ndash;8 weeks early via vy.no. Request right-side seats facing Bergen for the best views across Hardangervidda.</div>
+    </div>
+  </article>
+
+  <!-- ── DAY 7 ── -->
+  <article class="day" id="day-7" data-badges="away">
+    <div class="day-aside" style="background:#2A1212;">
+      <div class="day-num" aria-hidden="true">07</div>
+      <div class="day-num-label">Day Seven</div>
+      <div class="day-location">Bergen</div>
+      <div class="day-subtitle">Bryggen, Fl&oslash;yen &amp; Fish Market</div>
+      <div class="day-date">Saturday &middot; June 20</div>
+      <div class="day-badges"><span class="db ov">Overnight Bergen</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bryggen_panorama.JPG" alt="Bryggen wharf Bergen colourful wooden buildings" loading="lazy">
+        <span class="day-img-caption">Bryggen Wharf &middot; Bergen (UNESCO)</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Bryggen Wharf (UNESCO)</div>
+          <div class="act-desc">14th-century Hanseatic timber buildings on Bergen harbour. Explore the narrow &ldquo;passasjer&rdquo; alleyways, hidden courtyards and craftsman shops. A UNESCO World Heritage Site.</div>
+          <span class="act-tag">UNESCO Heritage</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Fl&oslash;ibanen Funicular to Fl&oslash;yen</div>
+          <div class="act-desc">8-minute ride to the 320m summit. Panoramic fjord views, playground and caf&eacute;. The Trollskogen Troll Forest trail has carved wooden troll statues hidden among the trees.</div>
+          <span class="act-tag">Mountain Views</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Bergen Fish Market &amp; Waterfront</div>
+          <div class="act-desc">Fresh shrimp, king crab and fish cakes at Fisketorget. Optional: Bergen Aquarium with penguins and Atlantic seals is a short walk from the harbour.</div>
+          <span class="act-tag">Local Market</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb walk">&#128694; Walking Only</span><div class="df-value">All Bergen sights within 10-min walk <strong>&middot; 5&ndash;10 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Pingvinen, Bergen</strong> &mdash; Traditional Norwegian home cooking in a casual, family-welcoming setting.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Finding the carved wooden troll statues hidden throughout the Trollskogen forest at the top of Mount Fl&oslash;yen.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Bergen rains approximately 250 days a year. Pack full waterproofs for every family member, every single day. Weather shifts from sunshine to downpour within minutes.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 8 ── SOLSTICE -->
+  <article class="day solstice" id="day-8" data-badges="away book special">
+    <div class="day-aside">
+      <div class="day-num" aria-hidden="true">08</div>
+      <div class="day-num-label">Day Eight &mdash; Solstice</div>
+      <div class="day-location">Fl&aring;m Railway &amp; N&aelig;r&oslash;yfjord</div>
+      <div class="day-subtitle">The Longest Day</div>
+      <div class="day-date">Sunday &middot; June 21</div>
+      <div class="day-badges"><span class="db sp">Summer Solstice</span><span class="db bk">Critical Booking</span><span class="db ov">Overnight Fl&aring;m</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%A5m_Railway_Fl%C3%A5msbana.jpg" alt="Flåm Railway Flamsbana train descending through fjord valley" loading="lazy">
+        <span class="day-img-caption">Fl&aring;m Railway (Flamsbana) &middot; N&aelig;r&oslash;ydal</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#287858">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Bergen &rarr; Myrdal Mountain Train</div>
+          <div class="act-desc">Vy train from Bergen to Myrdal (2 hrs). Dramatic valley and mountain scenery. Transfer at the remote Myrdal junction station for the Fl&aring;m Railway descent.</div>
+          <span class="act-tag">Scenic Train</span>
+        </div>
+        <div class="act" style="--ac-color:#287858">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Fl&aring;m Railway + UNESCO N&aelig;r&oslash;yfjord Cruise</div>
+          <div class="act-desc">865m descent through 20km of vertical Norwegian mountain. The Kjosfossen waterfall stop &mdash; the Huldra dances in the mist. Then: UNESCO N&aelig;r&oslash;yfjord fjord cruise from Fl&aring;m village.</div>
+          <span class="act-tag">Bucket List</span>
+        </div>
+        <div class="act" style="--ac-color:#287858">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Solstice Night in Fl&aring;m</div>
+          <div class="act-desc">Dinner at &AElig;gir Bryggeri &mdash; a Viking-themed brewpub with extraordinary timber interiors. The sun will not fully set tonight. Let the boys stay up just a little longer.</div>
+          <span class="act-tag">Solstice Night</span>
+        </div>
+      </div>
+      <div class="pull-quote">
+        <span class="pq-mark" aria-hidden="true">&ldquo;</span>
+        <p class="pq-text">The sun will not fully set tonight. The Kjosfossen waterfall, the Huldra in the mist, the N&aelig;r&oslash;yfjord at midnight light &mdash; this is the day the whole trip is built around.</p>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb train">&#128642; Vy + Fl&aring;m Railway</span><div class="df-value">Bergen &rarr; Myrdal &rarr; Fl&aring;m (Flamsbana) <strong>&middot; ~4 hrs to Fl&aring;m</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>&AElig;gir Bryggeri, Fl&aring;m</strong> &mdash; Viking-themed brewpub. Extraordinary atmosphere. Book a table in advance for summer.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">The Kjosfossen waterfall stop &mdash; the train pauses, everyone steps onto the platform, and the Huldra forest spirit appears dancing in the mist above the falls.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> The Summer Solstice sun will not fully set tonight. Bring blackout sleep masks for the children and maintain the bedtime routine regardless of what the sky looks like outside.</div>
+      </div>
+      <div class="day-alert">&#128276; <strong>CRITICAL Advance Booking &mdash;</strong> Fl&aring;m Railway sells out many weeks ahead in June. Book as early as possible &mdash; ideally 6&ndash;8 weeks. Also book the N&aelig;r&oslash;yfjord boat cruise and Bergen &rarr; Myrdal train separately in advance.</div>
+    </div>
+  </article>
+
+  <!-- ── DAY 9 ── -->
+  <article class="day" id="day-9" data-badges="book">
+    <div class="day-aside" style="background:#141C30;">
+      <div class="day-num" aria-hidden="true">09</div>
+      <div class="day-num-label">Day Nine</div>
+      <div class="day-location">Fl&aring;m &rarr; Oslo</div>
+      <div class="day-subtitle">Scenic Return Journey</div>
+      <div class="day-date">Monday &middot; June 22</div>
+      <div class="day-badges"><span class="db bk">Confirm Connection</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A6r%C3%B8yfjord-Norway-April-2011.jpg" alt="Nærøyfjord UNESCO fjord Norway boat view" loading="lazy">
+        <span class="day-img-caption">N&aelig;r&oslash;yfjord &middot; UNESCO World Heritage</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Final Walk in Fl&aring;m Village</div>
+          <div class="act-desc">Gentle fjord-shore walk to the 1670 Fl&aring;m Church (Fl&aring;mskyrkja) &mdash; one of Norway&rsquo;s oldest wooden churches. Boys skip stones in the still Aurlandsfjord water.</div>
+          <span class="act-tag">Village Walk</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Fl&aring;m Railway Up &rarr; Oslo Train</div>
+          <div class="act-desc">Ride the Flamsbana back uphill &mdash; same dramatic scenery in reverse. Connect at Myrdal to the Oslo-bound Bergen Railway. Long but beautiful journey home.</div>
+          <span class="act-tag">Return Train</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Arrive Back at Oslo Home Base</div>
+          <div class="act-desc">Quiet apartment dinner, laundry, repack. Early night. The fjords, the Huldra, the midnight sun &mdash; time to process it all.</div>
+          <span class="act-tag">Home Base</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb train">&#128642; Flamsbana + Vy</span><div class="df-value">Fl&aring;m &rarr; Myrdal &rarr; Oslo S <strong>&middot; ~5.5&ndash;6 hrs total</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Home-Cooked Apartment Dinner</strong> &mdash; Grocery stop after arriving in Oslo. Simple meal, early night for everyone.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">The Fl&aring;m Railway going uphill &mdash; the same waterfalls and cliffs in reverse, and they&rsquo;ll spot new details they missed on the way down.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Buy the return Fl&aring;m Railway tickets the evening before at Fl&aring;m station. Build at least 35 minutes of buffer at Myrdal. Missing the Oslo connection means a very cold wait at an exposed mountain station.</div>
+      </div>
+      <div class="day-alert">&#128276; <strong>Confirm Connection &mdash;</strong> Check your Myrdal &rarr; Oslo train time the day before at Fl&aring;m station. Only a few departures daily from Myrdal &mdash; missing it is a significant problem with young children.</div>
+    </div>
+  </article>
+
+  <!-- ── DAY 10 ── -->
+  <article class="day" id="day-10" data-badges="">
+    <div class="day-aside" style="background:#1E1630;">
+      <div class="day-num" aria-hidden="true">10</div>
+      <div class="day-num-label">Day Ten</div>
+      <div class="day-location">Oslo</div>
+      <div class="day-subtitle">Recovery Day &mdash; Ekebergparken</div>
+      <div class="day-date">Tuesday &middot; June 23</div>
+      <div class="day-badges"><span class="db bs">City Day</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ekebergparken_open_park_landscape.JPG" alt="Ekebergparken sculpture park open landscape Oslo" loading="lazy">
+        <span class="day-img-caption">Ekebergparken &middot; Oslo</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Slow Start &amp; Bakery Breakfast</div>
+          <div class="act-desc">Sleep in. Late breakfast at &Aring;pent Bakeri. A long coffee for the parents. A deliberately unhurried morning is not laziness &mdash; it is intentional family travel planning.</div>
+          <span class="act-tag">Rest Morning</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Ekebergparken Sculpture Forest</div>
+          <div class="act-desc">Free outdoor sculpture park on a forested hilltop overlooking Oslo and the fjord. Works by Rodin, Dal&iacute; and Bourgeois hidden among the trees. Far less crowded than Vigeland.</div>
+          <span class="act-tag">Free Entry</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Aker Brygge Golden Hour Walk</div>
+          <div class="act-desc">Back to the waterfront for the 9&ndash;10 PM golden light over the fjord. Ice cream, boat watching, sitting on the harbour steps in warm amber light.</div>
+          <span class="act-tag">Golden Hour</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb walk">&#128694; Tram + Walk</span><div class="df-value">Tram Lines 18/19 to Ekebergparken stop <strong>&middot; 15&ndash;20 min</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Fiskeriet Youngstorget</strong> &mdash; Market-style fish restaurant in central Oslo. Casual, family-friendly and reasonably priced.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Turning Ekebergparken into a sculpture treasure hunt &mdash; which team finds the most hidden artworks in the forest? The loser buys the ice cream.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Bring binoculars to Ekebergparken. From the hilltop viewpoint the 10-year-old can scan the fjord and spot the very islands he visited on Day 3.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 11 ── -->
+  <article class="day" id="day-11" data-badges="">
+    <div class="day-aside" style="background:#0E2420;">
+      <div class="day-num" aria-hidden="true">11</div>
+      <div class="day-num-label">Day Eleven</div>
+      <div class="day-location">Dr&oslash;bak</div>
+      <div class="day-subtitle">Santa&rsquo;s Village &amp; Oslo Fjord Town</div>
+      <div class="day-date">Wednesday &middot; June 24</div>
+      <div class="day-badges"><span class="db bs">Day Trip</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dr%C3%B8bak_seen_from_the_sea.JPG" alt="Drøbak town seen from Oslo Fjord" loading="lazy">
+        <span class="day-img-caption">Dr&oslash;bak &middot; Oslo Fjord</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Dr&oslash;bak Old Town &amp; Julenissen&rsquo;s Post Office</div>
+          <div class="act-desc">Preserved coastal wooden-house town on the fjord. The Jul i Dr&oslash;bak Christmas shop (open year-round) is the official Norwegian address of Father Christmas.</div>
+          <span class="act-tag">Christmas Town</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Oscarsborg Fortress Ferry</div>
+          <div class="act-desc">Short ferry to the fortress island that sank the German cruiser Bl&uuml;cher on April 9, 1940 &mdash; giving the royal family the hours they needed to escape Oslo. Plus Dr&oslash;bak Akvarium.</div>
+          <span class="act-tag">History &amp; Nature</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Return to Oslo &amp; Final Packing</div>
+          <div class="act-desc">Bus back to Oslo. Last dinner out or in. Begin sorting and packing for tomorrow&rsquo;s departure. Last of the Freia chocolate consumed.</div>
+          <span class="act-tag">Final Night</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb bus">&#128652; Ruter Bus 541</span><div class="df-value">R&aring;dhusplassen &rarr; Dr&oslash;bak (return) <strong>&middot; 50&ndash;60 min each way</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Havnestua, Dr&oslash;bak Harbour</strong> &mdash; Simple Norwegian fish dishes on the water with direct fjord views.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Mailing a postcard from Julenissen&rsquo;s official Norwegian post office &mdash; addressed to themselves, arriving home after they do. Magic for the youngest two.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Buy a postcard and stamp at Jul i Dr&oslash;bak and post it from the local box. The card arriving home weeks after the family is one of those small rituals children remember for years.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── DAY 12 ── -->
+  <article class="day" id="day-12" data-badges="book">
+    <div class="day-aside" style="background:#141828;">
+      <div class="day-num" aria-hidden="true">12</div>
+      <div class="day-num-label">Day Twelve</div>
+      <div class="day-location">Oslo</div>
+      <div class="day-subtitle">Final Day &amp; Farewell</div>
+      <div class="day-date">Thursday &middot; June 25</div>
+      <div class="day-badges"><span class="db bk">Departure Day</span></div>
+    </div>
+    <div class="day-body">
+      <div class="day-img">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Oslo_Opera_House_2023_1.jpg" alt="Oslo Opera House Bjørvika waterfront" loading="lazy">
+        <span class="day-img-caption">Oslo Opera House &middot; Bj&oslash;rvika</span>
+      </div>
+      <div class="day-acts">
+        <div class="act" style="--ac-color:#1B6B8A">
+          <div class="act-time">Morning</div>
+          <div class="act-title">Oslo Opera House Rooftop</div>
+          <div class="act-desc">The white marble roof is a public space &mdash; walk from waterline to the building&rsquo;s summit. No ticket required. Three boys will sprint straight to the top.</div>
+          <span class="act-tag">Iconic Landmark</span>
+        </div>
+        <div class="act" style="--ac-color:#D45C1E">
+          <div class="act-time">Afternoon</div>
+          <div class="act-title">Munch Museum (MUNCH)</div>
+          <div class="act-desc">13-story tower on the fjord housing the world&rsquo;s largest Munch collection. Multiple versions of The Scream. Family activity zones and top-floor panoramic caf&eacute;.</div>
+          <span class="act-tag">World-Class Art</span>
+        </div>
+        <div class="act" style="--ac-color:#5A4090">
+          <div class="act-time">Evening</div>
+          <div class="act-title">Souvenir Walk &amp; Farewell Dinner</div>
+          <div class="act-desc">Final stroll on Karl Johans Gate for Norwegian trolls, Freia chocolate and Kvikk Lunsj. Dinner at Kaffistova. Then home &mdash; the end of something wonderful.</div>
+          <span class="act-tag">Final Evening</span>
+        </div>
+      </div>
+      <div class="day-footer">
+        <div class="df"><div class="df-label">Transport</div><span class="tb walk">&#128694; Walk + Flytoget</span><div class="df-value">Opera/MUNCH walkable from Oslo S &middot; Flytoget to OSL <strong>&middot; 20 min to airport</strong></div></div>
+        <div class="df"><div class="df-label">Dining</div><div class="df-value"><strong>Kaffistova, Oslo</strong> &mdash; Classic Norwegian home cooking. Kj&oslash;ttkaker and fish cakes. Excellent value for a family farewell dinner.</div></div>
+        <div class="df"><div class="df-label">&#11088; Kids Will Love This</div><div class="df-value">Racing up the sloping white marble roof of the Oslo Opera House from the water&rsquo;s edge &mdash; whoever reaches the top first wins Norway.</div></div>
+      </div>
+      <div class="day-tip">
+        <span class="day-tip-icon">&#128161;</span>
+        <div class="day-tip-text"><strong>Practical Tip &mdash;</strong> Allow 2.5&ndash;3 hours from accommodation to gate at Gardermoen. Flytoget from Oslo S departs every 10&ndash;20 minutes. Do not cut this close with three children and luggage.</div>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  // Scroll-reveal with IntersectionObserver
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.day').forEach(function (el) {
+    observer.observe(el);
+  });
+
+  // Pill definitions (no user-controlled content — static labels only)
+  var pillDefs = {
+    away:    { text: 'Away',     cls: 'away' },
+    book:    { text: 'Book Now', cls: 'book' },
+    special: { text: 'Solstice', cls: 'special' }
+  };
+
+  function clearPills(container) {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
+
+  function updateNav(active) {
+    var navItems = document.querySelectorAll('.tn');
+    navItems.forEach(function (item) {
+      var n = parseInt(item.getAttribute('data-n'), 10);
+      var isNow = n === active;
+      item.classList.toggle('active', isNow);
+      if (isNow) {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+        // Update pills using safe DOM methods
+        var pillsEl = document.getElementById('dayPills');
+        clearPills(pillsEl);
+
+        var card = document.getElementById('day-' + n);
+        var badgesAttr = card ? (card.getAttribute('data-badges') || '').trim() : '';
+        if (badgesAttr) {
+          badgesAttr.split(' ').forEach(function (b) {
+            var def = pillDefs[b];
+            if (def) {
+              var span = document.createElement('span');
+              span.className = 'tp ' + def.cls;
+              span.textContent = def.text;
+              pillsEl.appendChild(span);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  // Keyboard support for nav items
+  document.querySelectorAll('.tn').forEach(function (el) {
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        var n = parseInt(el.getAttribute('data-n'), 10);
+        window.goDay(n);
+      }
+    });
+  });
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      var scroll = window.scrollY;
+      var active = 1;
+      for (var i = 1; i <= 12; i++) {
+        var el = document.getElementById('day-' + i);
+        if (el && el.getBoundingClientRect().top + window.scrollY - 90 <= scroll) active = i;
+      }
+      updateNav(active);
+      ticking = false;
+    });
+  }, { passive: true });
+
+  window.goDay = function (n) {
+    var el = document.getElementById('day-' + n);
+    if (!el) return;
+    var top = el.getBoundingClientRect().top + window.scrollY - 72;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  };
+
+  // Init
+  updateNav(1);
+}());
+</script>
+
+<script type="text/javascript" src="/unprotected/back_to_spaceship.js?hash=4975d460e508829e8fb64d3962bc44ad35f3a95a"></script>
+
+</body>
+</html>
